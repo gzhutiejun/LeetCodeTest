@@ -41,11 +41,88 @@ namespace LeetCodeTest
             //M             1000
 
             //intResult = RomanToInt("MCMXCIV");
-            intResult = RomanToInt("III");
+            //intResult = RomanToInt("III");
+
+            //Implement Stack using Queues
+            MyStack myStack = new MyStack();
+            myStack.Push(1);
+            myStack.Push(2);
+            myStack.Push(3);
+            int topValue = myStack.Top();
+            textBox1.Text += "Top:" + topValue.ToString() + Environment.NewLine;
+            topValue = myStack.Pop();
+            myStack.Push(4);
+            topValue = myStack.Pop();
+            textBox1.Text += "Top:" + topValue.ToString() + Environment.NewLine;
+
             bool finish = true;
         }
 
-        private int RomanToInt(string s)
+        public class Node
+        {
+            public Node Previous;
+            public int Data;
+
+        }
+
+        public class MyStack
+        {
+
+            private Node topNode = null;
+            private int size = 0;
+
+            public MyStack()
+            {
+                this.topNode = null;
+                this.size = 0;
+            }
+
+            public void Push(int x)
+            {
+                Node node = new Node();
+                node.Data = x;
+                node.Previous = this.topNode;
+                this.topNode = node;
+                this.size += 1;
+            }
+
+            public int Pop()
+            {
+                if (this.topNode != null)
+                {
+                    Node temp = this.topNode;
+                    this.topNode = temp.Previous;
+                    this.size -= 1;
+                    return temp.Data;
+                }
+                else
+                {
+                    return int.MaxValue;
+                }
+            }
+
+            public int Top()
+            {
+                if (this.topNode != null)
+                {
+                    return this.topNode.Data;
+                }
+                else
+                {
+                    return int.MaxValue;
+                }
+            }
+
+            public bool Empty()
+            {
+                if (this.size > 0)
+                    return false;
+                else
+                    return true;
+            }
+        }
+
+        public int RomanToInt(string s)
         {
             int rev = 0;
             
@@ -84,7 +161,7 @@ namespace LeetCodeTest
             }
             return rev;
         }
-        private bool IsPalindrome(int x)
+        public bool IsPalindrome(int x)
         {
 
             if (x < 0 || (x != 0 && x % 10 == 0))
@@ -110,7 +187,7 @@ namespace LeetCodeTest
             return true;
         }
 
-        private int[] TwoSum(int[] nums, int target)
+        public int[] TwoSum(int[] nums, int target)
         {
             int len = nums.Length;
             
