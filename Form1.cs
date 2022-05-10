@@ -21,15 +21,13 @@ namespace LeetCodeTest
         private void Form1_Load(object sender, EventArgs e)
         {
 
-            int[] intArrayResult;
-            bool boolResult;
-            int intResult;
+
             //Two Sum
             //int[] src = new int[6] { 1, 2, 3, 4, 5, 6 };
-            //intArrayResult = this.TwoSum(src, 6);
+            //int[] result = this.TwoSum(src, 6);
 
             //Palindrome Number
-            //boolResult = IsPalindrome(12345);
+            //bool result = IsPalindrome(12345);
 
             //Roman to Integer
             //I             1
@@ -40,8 +38,8 @@ namespace LeetCodeTest
             //D             500
             //M             1000
 
-            //intResult = RomanToInt("MCMXCIV");
-            //intResult = RomanToInt("III");
+            //int result = RomanToInt("MCMXCIV");
+            //int result = RomanToInt("III");
 
             //Implement Stack using Queues
             MyStack myStack = new MyStack();
